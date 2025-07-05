@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Members - Department of EEE - Metropolitan University</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="faculty.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <main class="main-container">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-content">
+                    <div class="top-links">
+                        <a href="index.html" class="top-link">Home</a>
+                        <span class="separator">|</span>
+                        <a href="#" class="top-link">Webmail</a>
+                        <span class="separator">|</span>
+                        <a href="#" class="top-link">Certificate Verification</a>
+                    </div>
+                    <div class="founder-text">
+                        <span>Founder Dr. Toufique Rahman Chowdhury</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logo Bar -->
+        <div class="logo-bar">
+            <div class="container">
+                <div class="logo-bar-content">
+                    <div class="logo-section">
+                        <img src="https://via.placeholder.com/300x60/0a192f/ffffff?text=Metropolitan+University" 
+                             alt="Metropolitan University Logo" class="logo">
+                    </div>
+                    <div class="search-section">
+                        <input type="text" placeholder="Search Site" class="search-input">
+                        <button class="search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <div class="main-nav">
+            <div class="container">
+                <nav class="nav-content">
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="nav-link">ABOUT MU</a></li>
+                        <li><a href="#" class="nav-link">PROGRAMMES</a></li>
+                        <li><a href="#" class="nav-link">ACADEMICS</a></li>
+                        <li><a href="#" class="nav-link">RESEARCH</a></li>
+                        <li><a href="#" class="nav-link">CAMPUS LIFE</a></li>
+                        <li><a href="#" class="nav-link">IQAC</a></li>
+                        <li><a href="#" class="nav-link">CONTACT</a></li>
+                        <li><a href="#" class="nav-link">CAREER</a></li>
+                    </ul>
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="container">
+                <div class="header-content">
+                    <h1 class="page-title">Faculty Members</h1>
+                    <p class="page-subtitle">Meet our distinguished faculty members at the Department of Electrical and Electronic Engineering</p>
+                    <nav class="breadcrumb">
+                        <a href="index.html" class="breadcrumb-link">Home</a>
+                        <span class="breadcrumb-separator">/</span>
+                        <span class="breadcrumb-current">Faculty Members</span>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Faculty Section -->
+        <div class="faculty-section">
+            <div class="container">
+                <!-- Faculty Filters -->
+                <div class="faculty-filters">
+                    <button class="filter-btn active" data-filter="all">All Faculty</button>
+                    <button class="filter-btn" data-filter="professor">Professors</button>
+                    <button class="filter-btn" data-filter="associate">Associate Professors</button>
+                    <button class="filter-btn" data-filter="assistant">Assistant Professors</button>
+                </div>
+
+                <!-- Faculty Grid -->
+                <div class="faculty-grid" id="facultyGrid">
+                    <div class="faculty-member-card" data-category="professor" data-faculty="dean">
+                        <div class="faculty-image">
+                            <svg width="100%" height="200" viewBox="0 0 250 200" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder face"><rect width="250" height="200" fill="#e5e7eb"/><circle cx="125" cy="80" r="60" fill="#cbd5e1"/><rect x="60" y="140" width="130" height="40" rx="20" fill="#cbd5e1"/></svg>
+                        </div>
+                        <div class="faculty-content">
+                            <h3 class="faculty-name">Professor Dr. Md. Nazrul Haque Chowdhury</h3>
+                            <p class="faculty-position">Professor & Dean</p>
+                        </div>
+                    </div>
+                    <div class="faculty-member-card" data-category="assistant" data-faculty="head">
+                        <div class="faculty-image">
+                            <svg width="100%" height="200" viewBox="0 0 250 200" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder face"><rect width="250" height="200" fill="#e5e7eb"/><circle cx="125" cy="80" r="60" fill="#cbd5e1"/><rect x="60" y="140" width="130" height="40" rx="20" fill="#cbd5e1"/></svg>
+                        </div>
+                        <div class="faculty-content">
+                            <h3 class="faculty-name">Nawshad Ahmed Chowdhury</h3>
+                            <p class="faculty-position">Assistant Professor Head, Dept. of EEE</p>
+                        </div>
+                    </div>
+                    <div class="faculty-member-card" data-category="assistant" data-faculty="assistant1">
+                        <div class="faculty-image">
+                            <svg width="100%" height="200" viewBox="0 0 250 200" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder face"><rect width="250" height="200" fill="#e5e7eb"/><circle cx="125" cy="80" r="60" fill="#cbd5e1"/><rect x="60" y="140" width="130" height="40" rx="20" fill="#cbd5e1"/></svg>
+                        </div>
+                        <div class="faculty-content">
+                            <h3 class="faculty-name">Md. Rahmot Ullah</h3>
+                            <p class="faculty-position">Assistant Professor</p>
+                        </div>
+                    </div>
+                    <div class="faculty-member-card" data-category="senior-lecturer" data-faculty="senior1">
+                        <div class="faculty-image">
+                            <svg width="100%" height="200" viewBox="0 0 250 200" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder face"><rect width="250" height="200" fill="#e5e7eb"/><circle cx="125" cy="80" r="60" fill="#cbd5e1"/><rect x="60" y="140" width="130" height="40" rx="20" fill="#cbd5e1"/></svg>
+                        </div>
+                        <div class="faculty-content">
+                            <h3 class="faculty-name">Md Anwarul Kawchar</h3>
+                            <p class="faculty-position">Senior Lecturer</p>
+                        </div>
+                    </div>
+                    <div class="faculty-member-card" data-category="lecturer" data-faculty="lecturer1">
+                        <div class="faculty-image">
+                            <svg width="100%" height="200" viewBox="0 0 250 200" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder face"><rect width="250" height="200" fill="#e5e7eb"/><circle cx="125" cy="80" r="60" fill="#cbd5e1"/><rect x="60" y="140" width="130" height="40" rx="20" fill="#cbd5e1"/></svg>
+                        </div>
+                        <div class="faculty-content">
+                            <h3 class="faculty-name">Arpita Mazumder</h3>
+                            <p class="faculty-position">Lecturer</p>
+                        </div>
+                    </div>
+                    <div class="faculty-member-card" data-category="lecturer" data-faculty="lecturer2">
+                        <div class="faculty-image">
+                            <svg width="100%" height="200" viewBox="0 0 250 200" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder face"><rect width="250" height="200" fill="#e5e7eb"/><circle cx="125" cy="80" r="60" fill="#cbd5e1"/><rect x="60" y="140" width="130" height="40" rx="20" fill="#cbd5e1"/></svg>
+                        </div>
+                        <div class="faculty-content">
+                            <h3 class="faculty-name">Md Hasanur Rahman Sohag</h3>
+                            <p class="faculty-position">Lecturer</p>
+                        </div>
+                    </div>
+                    <div class="faculty-member-card" data-category="lecturer" data-faculty="lecturer3">
+                        <div class="faculty-image">
+                            <svg width="100%" height="200" viewBox="0 0 250 200" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder face"><rect width="250" height="200" fill="#e5e7eb"/><circle cx="125" cy="80" r="60" fill="#cbd5e1"/><rect x="60" y="140" width="130" height="40" rx="20" fill="#cbd5e1"/></svg>
+                        </div>
+                        <div class="faculty-content">
+                            <h3 class="faculty-name">Sadman Sakib</h3>
+                            <p class="faculty-position">Lecturer</p>
+                        </div>
+                    </div>
+                    <div class="faculty-member-card" data-category="lecturer" data-faculty="lecturer4">
+                        <div class="faculty-image">
+                            <svg width="100%" height="200" viewBox="0 0 250 200" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder face"><rect width="250" height="200" fill="#e5e7eb"/><circle cx="125" cy="80" r="60" fill="#cbd5e1"/><rect x="60" y="140" width="130" height="40" rx="20" fill="#cbd5e1"/></svg>
+                        </div>
+                        <div class="faculty-content">
+                            <h3 class="faculty-name">Mahim Ahmed</h3>
+                            <p class="faculty-position">Lecturer</p>
+                        </div>
+                    </div>
+                    <div class="faculty-member-card" data-category="lecturer" data-faculty="lecturer5">
+                        <div class="faculty-image">
+                            <svg width="100%" height="200" viewBox="0 0 250 200" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder face"><rect width="250" height="200" fill="#e5e7eb"/><circle cx="125" cy="80" r="60" fill="#cbd5e1"/><rect x="60" y="140" width="130" height="40" rx="20" fill="#cbd5e1"/></svg>
+                        </div>
+                        <div class="faculty-content">
+                            <h3 class="faculty-name">Md. Fardin Ahasan Maraz</h3>
+                            <p class="faculty-position">Lecturer</p>
+                        </div>
+                    </div>
+                    <div class="faculty-member-card" data-category="lecturer" data-faculty="lecturer6">
+                        <div class="faculty-image">
+                            <svg width="100%" height="200" viewBox="0 0 250 200" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder face"><rect width="250" height="200" fill="#e5e7eb"/><circle cx="125" cy="80" r="60" fill="#cbd5e1"/><rect x="60" y="140" width="130" height="40" rx="20" fill="#cbd5e1"/></svg>
+                        </div>
+                        <div class="faculty-content">
+                            <h3 class="faculty-name">Md. Shadman Shakib</h3>
+                            <p class="faculty-position">Lecturer</p>
+                        </div>
+                    </div>
+                    <div class="faculty-member-card" data-category="lecturer" data-faculty="lecturer7">
+                        <div class="faculty-image">
+                            <svg width="100%" height="200" viewBox="0 0 250 200" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder face"><rect width="250" height="200" fill="#e5e7eb"/><circle cx="125" cy="80" r="60" fill="#cbd5e1"/><rect x="60" y="140" width="130" height="40" rx="20" fill="#cbd5e1"/></svg>
+                        </div>
+                        <div class="faculty-content">
+                            <h3 class="faculty-name">Ahmed Afif Rafsan</h3>
+                            <p class="faculty-position">Lecturer</p>
+                        </div>
+                    </div>
+                    <div class="faculty-member-card" data-category="lecturer" data-faculty="lecturer8">
+                        <div class="faculty-image">
+                            <svg width="100%" height="200" viewBox="0 0 250 200" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder face"><rect width="250" height="200" fill="#e5e7eb"/><circle cx="125" cy="80" r="60" fill="#cbd5e1"/><rect x="60" y="140" width="130" height="40" rx="20" fill="#cbd5e1"/></svg>
+                        </div>
+                        <div class="faculty-content">
+                            <h3 class="faculty-name">Ahmed Istiakur Rahman</h3>
+                            <p class="faculty-position">Lecturer</p>
+                        </div>
+                    </div>
+                    <div class="faculty-member-card" data-category="lecturer" data-faculty="lecturer9">
+                        <div class="faculty-image">
+                            <svg width="100%" height="200" viewBox="0 0 250 200" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder face"><rect width="250" height="200" fill="#e5e7eb"/><circle cx="125" cy="80" r="60" fill="#cbd5e1"/><rect x="60" y="140" width="130" height="40" rx="20" fill="#cbd5e1"/></svg>
+                        </div>
+                        <div class="faculty-content">
+                            <h3 class="faculty-name">Md Tawsifur Rahman</h3>
+                            <p class="faculty-position">Lecturer</p>
+                        </div>
+                    </div>
+                    <div class="faculty-member-card" data-category="lecturer" data-faculty="lecturer10">
+                        <div class="faculty-image">
+                            <svg width="100%" height="200" viewBox="0 0 250 200" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder face"><rect width="250" height="200" fill="#e5e7eb"/><circle cx="125" cy="80" r="60" fill="#cbd5e1"/><rect x="60" y="140" width="130" height="40" rx="20" fill="#cbd5e1"/></svg>
+                        </div>
+                        <div class="faculty-content">
+                            <h3 class="faculty-name">Fahim Ashraf</h3>
+                            <p class="faculty-position">Lecturer</p>
+                        </div>
+                    </div>
+                    <div class="faculty-member-card" data-category="lecturer" data-faculty="lecturer11">
+                        <div class="faculty-image">
+                            <svg width="100%" height="200" viewBox="0 0 250 200" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder face"><rect width="250" height="200" fill="#e5e7eb"/><circle cx="125" cy="80" r="60" fill="#cbd5e1"/><rect x="60" y="140" width="130" height="40" rx="20" fill="#cbd5e1"/></svg>
+                        </div>
+                        <div class="faculty-content">
+                            <h3 class="faculty-name">Md. Imam Mahdi</h3>
+                            <p class="faculty-position">Lecturer</p>
+                        </div>
+                    </div>
+                    <div class="faculty-member-card" data-category="lecturer" data-faculty="lecturer12">
+                        <div class="faculty-image">
+                            <svg width="100%" height="200" viewBox="0 0 250 200" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder face"><rect width="250" height="200" fill="#e5e7eb"/><circle cx="125" cy="80" r="60" fill="#cbd5e1"/><rect x="60" y="140" width="130" height="40" rx="20" fill="#cbd5e1"/></svg>
+                        </div>
+                        <div class="faculty-content">
+                            <h3 class="faculty-name">Abdullah Al Numan</h3>
+                            <p class="faculty-position">Lecturer</p>
+                        </div>
+                    </div>
+                    <div class="faculty-member-card" data-category="lecturer" data-faculty="lecturer13">
+                        <div class="faculty-image">
+                            <svg width="100%" height="200" viewBox="0 0 250 200" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder face"><rect width="250" height="200" fill="#e5e7eb"/><circle cx="125" cy="80" r="60" fill="#cbd5e1"/><rect x="60" y="140" width="130" height="40" rx="20" fill="#cbd5e1"/></svg>
+                        </div>
+                        <div class="faculty-content">
+                            <h3 class="faculty-name">Anika Tabassum</h3>
+                            <p class="faculty-position">Lecturer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Faculty Detail Modal -->
+        <div class="modal" id="facultyModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="modal-close" id="modalClose">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!-- Faculty details will be populated here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="footer-logo">
+                            <img src="https://via.placeholder.com/40x40/ffffff/0a192f?text=MU" alt="Metropolitan University Logo">
+                            <div class="footer-logo-text">
+                                <h3>Metropolitan University</h3>
+                                <p>Sylhet, Bangladesh</p>
+                            </div>
+                        </div>
+                        <p class="footer-description">Department of Electrical and Electronic Engineering</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3 class="footer-title">Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.html#overview">About</a></li>
+                            <li><a href="index.html#admission">Admission</a></li>
+                            <li><a href="index.html#degrees">Programs</a></li>
+                            <li><a href="faculty.html">Faculty</a></li>
+                            <li><a href="index.html#research">Research</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3 class="footer-title">Programs</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html#degrees">B.Sc. in EEE</a></li>
+                            <li><a href="index.html#degrees">M.Sc. in EEE</a></li>
+                            <li><a href="index.html#degrees">Ph.D. in EEE</a></li>
+                            <li><a href="#">Short Courses</a></li>
+                            <li><a href="#">Professional Training</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3 class="footer-title">Contact Us</h3>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Department of EEE<br>Metropolitan University<br>Bateshwar, Sylhet 3100<br>Bangladesh</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+880 1712-345678</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:eee@metrouni.edu.bd">eee@metrouni.edu.bd</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        <p>&copy; 2025 Metropolitan University. All rights reserved.</p>
+                    </div>
+                    <div class="footer-legal">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="faculty.js"></script>
+</body>
+</html>
