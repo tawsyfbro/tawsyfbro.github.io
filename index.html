@@ -7,6 +7,42 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
+
+<script>
+
+// Simple auto-sliding carousel (switch every 5 seconds)
+  document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll("#newsCarousel .news-slide");
+    const indicators = document.querySelectorAll("#newsCarouselIndicators .news-indicator");
+    let index = 0;
+    const total = slides.length;
+
+    function showSlide(i) {
+      slides.forEach((s, j) => s.classList.toggle("active", j === i));
+      indicators.forEach((dot, j) => dot.classList.toggle("active", j === i));
+      document.getElementById("newsCarousel").style.transform = `translateX(-${i * 100}%)`;
+    }
+
+    // Switch slides every 5 seconds
+    setInterval(() => {
+      index = (index + 1) % total;
+      showSlide(index);
+    }, 5000);
+
+    // Allow clicking indicators manually
+    indicators.forEach((dot, i) => {
+      dot.addEventListener("click", () => {
+        index = i;
+        showSlide(index);
+      });
+    });
+
+    showSlide(index);
+  });
+
+
+</script>
+
 <body>
     <main class="main-container">
         <!-- Top Bar -->
@@ -14,14 +50,14 @@
             <div class="container">
                 <div class="top-bar-content">
                     <div class="top-links">
-                        <a href="#" class="top-link">Home</a>
+                        <!-- <a href="#" class="top-link">Home</a>
                         <span class="separator">|</span>
                         <a href="#" class="top-link">Webmail</a>
                         <span class="separator">|</span>
-                        <a href="#" class="top-link">Certificate Verification</a>
+                        <a href="#" class="top-link">Certificate Verification</a> -->
                     </div>
-                    <div class="founder-text">
-                        <span>Founder Dr. Toufique Rahman Chowdhury</span>
+                    <!-- <div class="founder-text">
+                        <span>Founder Dr. Toufique Rahman Chowdhury</span> -->
                     </div>
                 </div>
             </div>
@@ -50,13 +86,17 @@
             <div class="container">
                 <nav class="nav-content">
                     <ul class="nav-menu">
-                        <li><a href="#" class="nav-link">ABOUT MU</a></li>
-                        <li><a href="#" class="nav-link">PROGRAMMES</a></li>
-                        <li><a href="#" class="nav-link">ACADEMICS</a></li>
+                        <li><a href="about.html" class="nav-link">ABOUT MU</a></li>
+                        <!-- <li><a href="#" class="nav-link">PROGRAMMES</a></li> -->
+                        <li><a href="#admission" class="nav-link">ADMISSION</a></li>
+                        <li><a href="#degrees" class="nav-link">DEGREE PROGRAMS</a></li>
+                        <li><a href="#faculty" class="nav-link">FACULTY MEMBERS</a></li>
+                        <li><a href="#research" class="nav-link">RESEARCH</a></li>
+                        <!-- <li><a href="#" class="nav-link">ACADEMICS</a></li>
                         <li><a href="#" class="nav-link">RESEARCH</a></li>
                         <li><a href="#" class="nav-link">CAMPUS LIFE</a></li>
-                        <li><a href="#" class="nav-link">IQAC</a></li>
-                        <li><a href="#" class="nav-link">CONTACT</a></li>
+                        <li><a href="#" class="nav-link">IQAC</a></li> -->
+                        <li><a href="#contact_footer" class="nav-link">CONTACT</a></li>
                         <li><a href="#" class="nav-link">CAREER</a></li>
                     </ul>
                     <button class="mobile-menu-btn">
@@ -114,7 +154,7 @@
                     <!-- Sidebar -->
                     <div class="sidebar">
                         <!-- Quick Links Card -->
-                        <div class="card sidebar-card">
+                        <!-- <div class="card sidebar-card">
                             <div class="card-header">
                                 <h3 class="card-title">Quick Links</h3>
                             </div>
@@ -162,8 +202,8 @@
                             </div>
                         </div>
 
-                        <!-- Contact Info Card -->
-                        <div class="card contact-card">
+                        Contact Info Card -->
+                        <!-- <div class="card contact-card">
                             <div class="card-header">
                                 <h3 class="card-title">Contact Us</h3>
                             </div>
@@ -176,7 +216,7 @@
                                     <a href="mailto:eee@metrouni.edu.bd" class="contact-email">eee@metrouni.edu.bd</a>
                                 </address>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- Leadership Messages Card -->
                         <div class="card leadership-card">
@@ -276,7 +316,7 @@
                         </section>
 
                         <!-- News & Notices Section -->
-                        <section id="news" class="section">
+                        <!-- <section id="news" class="section">
                             <h2 class="section-title">News & Notices</h2>
                             <div class="news-carousel">
                                 <div class="news-carousel-container" id="newsCarousel">
@@ -325,6 +365,75 @@
                                     <span class="news-indicator"></span>
                                     <span class="news-indicator"></span>
                                 </div>
+                            </div>
+                        </section> -->
+
+                        <!-- News & Notices Section -->
+                        <section id="news" class="section" aria-label="News & Notices carousel">
+                            <h2 class="section-title">News & Notices</h2>
+                        
+                            <div class="news-carousel" data-autoplay="true" data-interval="6000">
+                            <div class="news-carousel-container" id="newsCarousel" role="region" aria-roledescription="carousel" aria-label="News carousel">
+                                <!-- Slide 1: Clickable Image -->
+                                <div class="news-slide active" aria-roledescription="slide" aria-label="1 of 3">
+                                <a class="news-image-card" href="#admission" aria-label="Go to Admission section">
+                                    <div class="news-image-wrap">
+                                    <img
+                                        src="images/admission_2025.png"
+                                        alt="Admission announcement banner"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                    </div>
+                                    <div class="news-image-overlay">
+                                    <!-- <span class="news-badge">Featured</span> -->
+                                    <!-- <h3 class="news-image-title">Apply for Autumn 2025 Admissions</h3> -->
+                                    </div>
+                                </a>
+                                </div>
+                        
+                                <!-- Slide 2: Clickable Image -->
+                                <div class="news-slide" aria-roledescription="slide" aria-label="2 of 3">
+                                <a class="news-image-card" href="about.html" aria-label="Go to Smart Grid Day event page">
+                                    <div class="news-image-wrap">
+                                    <img
+                                        src="images/convocation_2025.jpg"
+                                        alt="Smart Grid Day event visual"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                    </div>
+                                    <div class="news-image-overlay">
+                                    <!-- <span class="news-badge">Event</span> -->
+                                    <!-- <h3 class="news-image-title">Smart Grid Day — Workshops & Demos</h3> -->
+                                    </div>
+                                </a>
+                                </div>
+                        
+                                <!-- Slide 3: Original news card -->
+                                <div class="news-slide" aria-roledescription="slide" aria-label="3 of 3">
+                                <div class="news-card">
+                                    <div class="news-badge">Latest</div>
+                                    <h3 class="news-title">
+                                    <a href="#">EEE Department Hosts International Conference on Smart Grid Technologies</a>
+                                    </h3>
+                                    <p class="news-description">
+                                    The Department of Electrical and Electronic Engineering successfully hosted the 3rd International Conference on Smart Grid Technologies and Renewable Energy Integration, bringing together researchers and industry experts from around the world.
+                                    </p>
+                                    <div class="news-meta">
+                                    <span class="news-date">December 15, 2024</span>
+                                    <span class="news-category">Conference</span>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        
+                            <!-- Indicators -->
+                            <div class="news-carousel-indicators" id="newsCarouselIndicators" role="tablist" aria-label="Choose slide">
+                                <button class="news-indicator active" aria-label="Slide 1" aria-controls="newsCarousel" aria-selected="true"></button>
+                                <button class="news-indicator" aria-label="Slide 2" aria-controls="newsCarousel" aria-selected="false"></button>
+                                <button class="news-indicator" aria-label="Slide 3" aria-controls="newsCarousel" aria-selected="false"></button>
+                            </div>
                             </div>
                         </section>
 
@@ -1030,7 +1139,7 @@
                         </ul>
                     </div>
 
-                    <div class="footer-section">
+                    <div class="footer-section", id="contact_footer">
                         <h3 class="footer-title">Contact Us</h3>
                         <div class="contact-info">
                             <div class="contact-item">
