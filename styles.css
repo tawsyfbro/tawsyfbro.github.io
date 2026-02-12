@@ -242,6 +242,7 @@ body {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.95rem;
+  table-layout: fixed;
 }
 
 .timings-table th,
@@ -249,6 +250,8 @@ body {
   padding: 0.75rem 1rem;
   text-align: left;
   border-bottom: 1px solid var(--color-border);
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .timings-table th {
@@ -301,5 +304,75 @@ body {
 
   .filters {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Extra-small phones: keep all columns visible without horizontal scroll */
+@media (max-width: 430px) {
+  .page-wrap {
+    padding: 0 0.75rem 1.5rem;
+  }
+
+  .header {
+    padding-top: 1.5rem;
+    padding-bottom: 1.1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .logo {
+    font-size: 1.6rem;
+  }
+
+  .tagline {
+    font-size: 0.8rem;
+  }
+
+  .timings-table {
+    font-size: 0.78rem;
+  }
+
+  .timings-table th,
+  .timings-table td {
+    padding: 0.35rem 0.3rem;
+  }
+
+  /* Slightly bias widths so time column stays in view */
+  .timings-table th:nth-child(1),
+  .timings-table td:nth-child(1) {
+    width: 28%;
+  }
+
+  .timings-table th:nth-child(2),
+  .timings-table td:nth-child(2) {
+    width: 25%;
+  }
+
+  .timings-table th:nth-child(3),
+  .timings-table td:nth-child(3) {
+    /* width: 20%; */
+    display: none;
+  }
+
+  .timings-table th:nth-child(4),
+  .timings-table td:nth-child(4) {
+    width: 18%;
+  }
+
+  .filter-label {
+    font-size: 0.75rem;
+  }
+
+  .filter-select {
+    font-size: 0.85rem;
+    padding: 0.5rem 1.8rem 0.5rem 0.7rem;
+  }
+
+  .arrow-btn {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.8rem;
+  }
+
+  .current-prayer-label {
+    font-size: 0.8rem;
   }
 }
