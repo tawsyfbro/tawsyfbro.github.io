@@ -1,115 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jamaat Timings — Mosque Prayer Times</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FIFA World Cup 2026 — Bracket Predictor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0d3320;font-family:'Inter',sans-serif;color:#fff;min-height:100vh}
+
+.header{background:#0a2613;border-bottom:3px solid #f0b429;padding:16px 24px;display:flex;align-items:center;gap:12px}
+.header h1{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px;color:#f0b429}
+.header p{font-size:12px;color:#86efac;margin-top:2px}
+.reset-btn{margin-left:auto;border:1.5px solid #f0b429;background:transparent;color:#f0b429;font-size:11px;font-weight:600;padding:6px 14px;border-radius:5px;cursor:pointer;letter-spacing:.5px}
+.reset-btn:hover{background:#f0b429;color:#0a2613}
+
+.progress{background:#071a0e;padding:8px 24px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #1a4d2e}
+.prog-label{font-size:10px;color:#86efac;font-weight:600;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap}
+.prog-track{flex:1;height:5px;background:#1a3d26;border-radius:3px;overflow:hidden}
+.prog-fill{height:100%;background:#f0b429;border-radius:3px;transition:width .3s}
+.prog-count{font-size:10px;color:#f0b429;font-weight:600;white-space:nowrap}
+
+.scroll{overflow-x:auto;padding:24px}
+.bracket{display:flex;align-items:center;gap:0;width:max-content}
+
+.round{display:flex;flex-direction:column;min-width:156px}
+.round-title{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;color:#fde68a;text-align:center;padding:0 8px 10px;border-bottom:1.5px solid #1a4d2e;margin-bottom:0}
+.round-matches{display:flex;flex-direction:column}
+
+.team-btn{
+  display:flex;align-items:center;gap:7px;
+  width:140px;padding:7px 9px;
+  background:#fff;border:1.5px solid #e5e7eb;
+  font-family:'Inter',sans-serif;font-size:11px;font-weight:500;
+  color:#111;text-align:left;cursor:pointer;
+  transition:background .1s,border-color .1s;
+  white-space:nowrap;overflow:hidden;
+}
+.team-btn:first-child{border-radius:6px 6px 0 0;border-bottom:1px solid #f0f0f0}
+.team-btn:last-child{border-radius:0 0 6px 6px}
+.team-btn:hover:not([disabled]){background:#f0fdf4;border-color:#059669}
+.team-btn[disabled]{cursor:default}
+.team-btn .flag{font-size:14px;flex-shrink:0}
+.team-btn .name{flex:1;overflow:hidden;text-overflow:ellipsis}
+
+.team-btn.winner{background:#d1fae5;border-color:#059669;color:#065f46;font-weight:600}
+.team-btn.winner:first-child{border-bottom:1px solid #a7f3d0}
+.team-btn.loser{opacity:.3}
+.team-btn.tbd{color:#9ca3af;font-style:italic;cursor:default;background:#fafafa}
+
+.final-col{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 24px;gap:12px}
+.trophy-icon{font-size:48px;text-align:center}
+.final-title{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:#f0b429;text-align:center}
+.final-match{border:2.5px solid #f0b429;border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 0 30px rgba(240,180,41,.2)}
+.final-match .team-btn{width:160px;padding:10px 12px;font-size:12px}
+.champion-badge{background:#0a2613;color:#fde68a;font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:2px;text-align:center;padding:5px}
+.winner-name{font-family:'Bebas Neue',sans-serif;font-size:15px;color:#fde68a;letter-spacing:1px;text-align:center}
+</style>
 </head>
 <body>
-  <div class="page-wrap">
-    <header class="header">
-      <div class="header-inner">
-        <h1 class="logo">
-          <span class="logo-arabic">جماعة</span>
-          <span class="logo-text">Jamaat Timings</span>
-        </h1>
-        <p class="tagline">Prayer congregation times at mosques near you</p>
-      </div>
-    </header>
 
-    <main class="main">
-      <section class="filters">
-        <div class="filter-row">
-          <label class="filter-label">
-            <span class="label-icon">📍</span>
-            Area
-          </label>
-          <div class="select-wrap">
-            <select id="area-select" class="filter-select" aria-label="Select area">
-              <option value="">All areas</option>
-            </select>
-            <span class="select-arrow" aria-hidden="true">▼</span>
-          </div>
-        </div>
-        <div class="filter-row">
-          <label class="filter-label">
-            <span class="label-icon">🕌</span>
-            Mosque
-          </label>
-          <div class="select-wrap">
-            <select id="mosque-select" class="filter-select" aria-label="Select mosque">
-              <option value="">All mosques</option>
-            </select>
-            <span class="select-arrow" aria-hidden="true">▼</span>
-          </div>
-        </div>
-        <div class="filter-row">
-          <label class="filter-label">
-            <span class="label-icon">🕋</span>
-            Prayer
-          </label>
-          <div class="select-wrap">
-            <select id="prayer-select" class="filter-select" aria-label="Select prayer">
-              <option value="">All prayers</option>
-              <option value="fajr">Fajr</option>
-              <option value="zuhr">Zuhr</option>
-              <option value="asr">Asr</option>
-              <option value="maghrib">Maghrib</option>
-              <option value="isha">Isha</option>
-              <option value="Jumuah">Jumu'ah</option>
-            </select>
-            <span class="select-arrow" aria-hidden="true">▼</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="nav-arrows" aria-label="Navigate results">
-        <button type="button" id="prev-prayer" class="arrow-btn" title="Previous prayer" aria-label="Previous prayer">
-          <span class="arrow-symbol">←</span>
-          <span class="arrow-label">Previous</span>
-        </button>
-        <span id="current-prayer-label" class="current-prayer-label">—</span>
-        <button type="button" id="next-prayer" class="arrow-btn" title="Next prayer" aria-label="Next prayer">
-          <span class="arrow-label">Next</span>
-          <span class="arrow-symbol">→</span>
-        </button>
-      </section>
-
-      <section class="results" aria-live="polite">
-        <div id="loading" class="loading" hidden>
-          <div class="spinner"></div>
-          <p>Loading timings…</p>
-        </div>
-        <div id="error" class="error" hidden>
-          <p id="error-message"></p>
-          <p class="hint">Ensure your Google Sheet is published to the web (File → Share → Publish to web → CSV) and the URL is set in <code>app.js</code>.</p>
-        </div>
-        <div id="results-container" class="results-container" hidden>
-          <table class="timings-table" id="timings-table">
-            <thead>
-              <tr>
-                <th>Mosque</th>
-                <th>Area</th>
-                <th>Prayer</th>
-                <th>Jamaat time</th>
-              </tr>
-            </thead>
-            <tbody id="timings-body">
-            </tbody>
-          </table>
-          <p id="no-results" class="no-results" hidden>No timings match your filters.</p>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <p>Jamaat timings are as per mosque schedules. Please confirm with the mosque for any changes.</p>
-    </footer>
+<div class="header">
+  <div>⚽</div>
+  <div>
+    <h1>FIFA World Cup 2026 — Bracket Predictor</h1>
+    <p>Click a team to advance them to the next round</p>
   </div>
-  <script src="script.js"></script>
+  <button class="reset-btn" onclick="reset()">↺ Reset</button>
+</div>
+
+<div class="progress">
+  <span class="prog-label">Progress</span>
+  <div class="prog-track"><div class="prog-fill" id="pfill" style="width:0%"></div></div>
+  <span class="prog-count" id="pcount">0 / 31</span>
+</div>
+
+<div class="scroll">
+  <div class="bracket" id="bracket"></div>
+</div>
+
+<script>
+const FLAGS={Germany:'🇩🇪',Paraguay:'🇵🇾',France:'🇫🇷',Sweden:'🇸🇪','S.Arabia':'🇸🇦',Canada:'🇨🇦',Netherlands:'🇳🇱',Morocco:'🇲🇦',Portugal:'🇵🇹',Croatia:'🇭🇷',Spain:'🇪🇸',Austria:'🇦🇹',USA:'🇺🇸',BOH:'🏴',Belgium:'🇧🇪',Senegal:'🇸🇳',Brazil:'🇧🇷',Japan:'🇯🇵','Ivory Coast':'🇨🇮',Norway:'🇳🇴',Mexico:'🇲🇽',Ecuador:'🇪🇨',England:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',Congo:'🇨🇩',Argentina:'🇦🇷','Cape Verde':'🇨🇻',Australia:'🇦🇺',Egypt:'🇪🇬',Switzerland:'🇨🇭',Algeria:'🇩🇿',Colombia:'🇨🇴',Ghana:'🇬🇭'};
+
+const R32=[
+  ['Germany','Paraguay'],  ['France','Sweden'],
+  ['S.Arabia','Canada'],   ['Netherlands','Morocco'],
+  ['Portugal','Croatia'],  ['Spain','Austria'],
+  ['USA','BOH'],           ['Belgium','Senegal'],
+  ['Brazil','Japan'],      ['Ivory Coast','Norway'],
+  ['Mexico','Ecuador'],    ['England','Congo'],
+  ['Argentina','Cape Verde'],['Australia','Egypt'],
+  ['Switzerland','Algeria'],['Colombia','Ghana']
+];
+
+let W=[
+  Array(16).fill(null),
+  Array(8).fill(null),
+  Array(4).fill(null),
+  Array(2).fill(null),
+  Array(1).fill(null)
+];
+
+function getTeams(round,idx){
+  if(round===0) return R32[idx];
+  return [W[round-1][idx*2]||null,W[round-1][idx*2+1]||null];
+}
+
+function pick(round,idx,team){
+  if(!team) return;
+  W[round][idx]=team;
+  cascadeClear(round,idx);
+  W[round][idx]=team;
+  render();
+}
+
+function cascadeClear(round,idx){
+  if(round>=4) return;
+  const nextIdx=Math.floor(idx/2);
+  const cur=W[round+1][nextIdx];
+  if(!cur) return;
+  W[round+1][nextIdx]=null;
+  cascadeClear(round+1,nextIdx);
+}
+
+const ROUND_NAMES=['Round of 32','Round of 16','Quarter-finals','Semi-finals'];
+const SLOT_H=[78,156,312,624];
+
+function render(){
+  const br=document.getElementById('bracket');
+  br.innerHTML='';
+
+  for(let r=0;r<4;r++){
+    const count=[16,8,4,2][r];
+    const slotH=SLOT_H[r];
+
+    const col=document.createElement('div');
+    col.className='round';
+
+    const title=document.createElement('div');
+    title.className='round-title';
+    title.textContent=ROUND_NAMES[r];
+    col.appendChild(title);
+
+    const matches=document.createElement('div');
+    matches.className='round-matches';
+
+    for(let m=0;m<count;m++){
+      const [tA,tB]=getTeams(r,m);
+      const w=W[r][m];
+
+      const wrapper=document.createElement('div');
+      wrapper.style.cssText=`height:${slotH}px;display:flex;align-items:center;padding:0 8px;`;
+
+      const card=document.createElement('div');
+      card.style.cssText=`display:flex;flex-direction:column;border-radius:6px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,.15);`;
+
+      [[tA,0],[tB,1]].forEach(([t,i])=>{
+        const btn=document.createElement('button');
+        btn.className='team-btn';
+        if(!t){
+          btn.classList.add('tbd');
+          btn.disabled=true;
+          btn.innerHTML=`<span class="flag">—</span><span class="name">TBD</span>`;
+        } else {
+          const f=FLAGS[t]||'🏳️';
+          btn.innerHTML=`<span class="flag">${f}</span><span class="name">${t}</span>`;
+          if(w===t) btn.classList.add('winner');
+          else if(w&&w!==t) btn.classList.add('loser');
+          btn.onclick=()=>pick(r,m,t);
+        }
+        card.appendChild(btn);
+      });
+
+      wrapper.appendChild(card);
+      matches.appendChild(wrapper);
+    }
+
+    col.appendChild(matches);
+    br.appendChild(col);
+
+    if(r<3){
+      br.appendChild(buildConnectors(count,[8,4,2][r],slotH,SLOT_H[r+1]));
+    }
+  }
+
+  br.appendChild(buildConnectors(2,1,SLOT_H[3],SLOT_H[3]*2));
+
+  const fc=document.createElement('div');
+  fc.className='final-col';
+
+  const ti=document.createElement('div');
+  ti.className='trophy-icon';
+  ti.textContent='🏆';
+  fc.appendChild(ti);
+
+  const tl=document.createElement('div');
+  tl.className='final-title';
+  tl.textContent='World Cup Final';
+  fc.appendChild(tl);
+
+  const fm=document.createElement('div');
+  fm.className='final-match';
+
+  const finalW=W[4][0];
+  const [fA,fB]=getTeams(4,0);
+
+  const badge=document.createElement('div');
+  badge.className='champion-badge';
+  badge.textContent=finalW?'⭐ WORLD CHAMPION ⭐':'Click to crown the champion';
+  fm.appendChild(badge);
+
+  [[fA,0],[fB,1]].forEach(([t])=>{
+    const btn=document.createElement('button');
+    btn.className='team-btn';
+    if(!t){
+      btn.classList.add('tbd');
+      btn.disabled=true;
+      btn.innerHTML=`<span class="flag">—</span><span class="name">TBD</span>`;
+    } else {
+      const f=FLAGS[t]||'🏳️';
+      btn.innerHTML=`<span class="flag">${f}</span><span class="name">${t}</span>`;
+      if(finalW===t) btn.classList.add('winner');
+      else if(finalW&&finalW!==t) btn.classList.add('loser');
+      btn.onclick=()=>pick(4,0,t);
+    }
+    fm.appendChild(btn);
+  });
+  fc.appendChild(fm);
+
+  if(finalW){
+    const wn=document.createElement('div');
+    wn.className='winner-name';
+    wn.textContent=`${FLAGS[finalW]||''} ${finalW} 🏆`;
+    fc.appendChild(wn);
+  }
+
+  br.appendChild(fc);
+
+  let done=0;
+  for(let r=0;r<5;r++) for(let w of W[r]) if(w) done++;
+  const pct=Math.round(done/31*100);
+  document.getElementById('pfill').style.width=pct+'%';
+  document.getElementById('pcount').textContent=`${done} / 31`;
+}
+
+function buildConnectors(fromCount,toCount,fromSlotH){
+  const totalH=fromCount*fromSlotH;
+  const Wpx=32;
+
+  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+  svg.setAttribute('width',Wpx);
+  svg.setAttribute('height',totalH);
+  svg.style.cssText=`flex-shrink:0;display:block;`;
+
+  for(let i=0;i<toCount;i++){
+    const topY=(i*2)*fromSlotH+fromSlotH/2;
+    const botY=(i*2+1)*fromSlotH+fromSlotH/2;
+    const midY=(topY+botY)/2;
+
+    const lines=[
+      [0,topY,Wpx/2,topY],
+      [0,botY,Wpx/2,botY],
+      [Wpx/2,topY,Wpx/2,botY],
+      [Wpx/2,midY,Wpx,midY]
+    ];
+    lines.forEach(([x1,y1,x2,y2])=>{
+      const l=document.createElementNS('http://www.w3.org/2000/svg','line');
+      l.setAttribute('x1',x1);l.setAttribute('y1',y1);
+      l.setAttribute('x2',x2);l.setAttribute('y2',y2);
+      l.setAttribute('stroke','#2d7a4f');l.setAttribute('stroke-width','2');
+      svg.appendChild(l);
+    });
+  }
+  return svg;
+}
+
+function reset(){
+  W=[Array(16).fill(null),Array(8).fill(null),Array(4).fill(null),Array(2).fill(null),Array(1).fill(null)];
+  render();
+}
+
+render();
+</script>
 </body>
 </html>
